@@ -1,0 +1,34 @@
+{
+  "name": "hence-comp-ui-card",
+  "authors": [
+    "Sean 'Blitz' Homer <sean.homer@therefore.ca>"
+  ],
+  "description": "A basic card element.",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer"
+  ],
+  "main": "dist/hence-comp-ui-card.html",
+  "homepage": "https://github.com/homertherefore/hence-comp-ui-card/",
+  "ignore": [
+    "/.*",
+    "/comp/gulp/",
+    "/comp/test/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0"
+  },
+  "devDependencies": {
+    "web-component-tester": "*"
+  },
+  "_release": "6785252b4f",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "6785252b4f75067364ce6a414b74321b5734c19d"
+  },
+  "_source": "git://github.com/hence-io/hence-comp-ui-card.git",
+  "_target": "*",
+  "_originalSource": "git://github.com/hence-io/hence-comp-ui-card"
+}
