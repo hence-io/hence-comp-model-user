@@ -1,5 +1,5 @@
 'use strict';
 
 import HenceCompModelUser from './hence-comp-model-user';
-HenceCompModelUser.appendElementTo();
+HenceCompModelUser.registerElement();
 export * from './hence-comp-model-user';

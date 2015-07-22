@@ -23,11 +23,7 @@ let HenceCompModelUser = HenceComp({
     },
     test: {
       type: Object,
-      value: ()=> {
-        return {
-          title: 'Hax0r!'
-        };
-      }
+      value: null
     }
   },
 
@@ -71,8 +67,6 @@ let HenceCompModelUser = HenceComp({
    * loading resources, etc).
    */
   attached() {
-    this.configureProperties(); // will auto fill in this components properties if passed in as an object through the DOM.
-
     // WARNING, updating DOM elements HERE may override variable revisions in the factoryImpl function if created
     // with the createElement function,leveraging the components defaults instead. If the element is embedded, no issue.
 
