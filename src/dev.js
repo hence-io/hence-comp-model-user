@@ -25,13 +25,6 @@ let callToAction = {
 };
 
 
-HenceCompModelUser.appendElementTo({
-  test: {
-    title: 'Hax0r!',
-    image: 'http://placehold.it/350x50',
-    options: options,
-    callToAction: callToAction
-  }
-});
+HenceCompModelUser.appendElementTo();
 
 export * from './hence-comp-model-user';

@@ -4,12 +4,13 @@
  */
 import console from 'consoler';
 import HenceComp from 'hence-comp';
+import _each from 'lodash/collection/each';
 
 let is = 'hence-comp-model-user';
 
 /**
  * HenceCompModelUser Component
-  * @constructor
+ * @constructor
  */
 let HenceCompModelUser = HenceComp({
   is, // auto set as is : is, es6 laziness joy!
@@ -21,7 +22,10 @@ let HenceCompModelUser = HenceComp({
       type: Object,
       value: ()=> { return {}; }
     },
-    state: Array
+    state: {
+      type: Array,
+      value: null
+    }
   },
 
   /*********************************************************************************************************************
@@ -34,8 +38,7 @@ let HenceCompModelUser = HenceComp({
    * against you DOM elements. By default listeners look for IDs on elements so ‘myButton.tap’ will watch click/touches
    * on a #myButton element in the component
    */
-  listeners: {
-  },
+  listeners: {},
 
 
   /*********************************************************************************************************************
@@ -48,19 +51,43 @@ let HenceCompModelUser = HenceComp({
    ********************************************************************************************************************/
 
   /**
-   *
+   * Manipulate the state loaded in from the schema to be suited for the expecting UI element
    */
-  transformState() {
+    transformState() {
     let results = [];
 
-    this.state.forEach((entry)=>{
-      results.push({
-        title:entry.title,
-        image: entry.image
-      })
+    if (!this.state) {
+      this.state = [];
+    }
+
+    this.state.forEach((entry)=> {
+      let user = {
+        title: `${entry.firstName} ${entry.lastName}'s Title`,
+        callToAction: {
+          label: 'Email user',
+          action: (e, model)=> {
+            alert('Email user' + entry.email);
+          }
+        }
+      };
+
+      if(entry.mySites) {
+        user.options = [];
+
+        _each(entry.mySites,(url, label)=> {
+          let site = {
+            label: label,
+            action: ()=> { window.location = url; }
+          };
+
+          user.options.push(site);
+        });
+      }
+
+      results.push(user);
     });
 
-    if(results.length === 1) {
+    if (results.length === 1) {
       results = results[0];
     }
 
