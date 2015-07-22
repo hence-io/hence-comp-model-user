@@ -17,14 +17,11 @@ let HenceCompModelUser = HenceComp({
    * Initialization
    ********************************************************************************************************************/
   properties: {
-    greeting: {
-      type: String,
-      value: 'Hello!'
-    },
-    test: {
+    query: {
       type: Object,
-      value: null
-    }
+      value: ()=> { return {}; }
+    },
+    state: Array
   },
 
   /*********************************************************************************************************************
@@ -45,79 +42,29 @@ let HenceCompModelUser = HenceComp({
    * Element DOM Hooks
    ********************************************************************************************************************/
 
-  /**
-   * This is called after all elements have been configured, but propagates bottom-up. This element's children are
-   * ready, but parents are not. This is the point where you should make modifications to the DOM (when  necessary),
-   * or kick off any processes the element wants to perform.
-   */
-  ready() {
-    // WARNING, updating DOM elements HERE may override variable revisions in the factoryImpl function if created
-    // with the createElement function,leveraging the components defaults instead. If the element is embedded, no issue.
-
-    // Access a local DOM element by ID using this.$
-    // this.$.greeting.textContent += ", has loaded!";
-
-    // Access a local DOM element by selector using this.$$('')
-    // this.$$('#greeting').textContent += ", has loaded!";
-  },
-
-  /**
-   * `attached` fires once the element and its parents have been inserted  into a document. This is a good place to
-   * perform any work related to your element's visual state or active behavior (measuring sizes, beginning animations,
-   * loading resources, etc).
-   */
-  attached() {
-    // WARNING, updating DOM elements HERE may override variable revisions in the factoryImpl function if created
-    // with the createElement function,leveraging the components defaults instead. If the element is embedded, no issue.
-
-    // Access a local DOM element by ID using this.$
-    // this.$.greeting.textContent += ", has loaded!";
-
-    // Access a local DOM element by selector using this.$$('')
-    // this.$$('#greeting').textContent += ", has loaded!";
-
-    this.async(function() {
-      // access sibling or parent elements here
-    });
-  },
-
-  /**
-   * The analog to `attached`, `detached` fires when the element has been removed from a document. Use this to clean
-   * up anything you did in `attached`.
-   */
-  detached() {
-
-  },
-
-  /**
-   * @param {String} name The name of the attribute
-   * @param {String} type The variable type of the attribute
-   */
-  attributeChanged(name, type) {
-    let attr = this.getAttribute(name);
-    console.log(`${this.localName}#${this.id} attribute ${name} was changed to ${attr} of type ${type}`);
-  },
 
   /*********************************************************************************************************************
    * Element Behaviour
    ********************************************************************************************************************/
 
   /**
-   * Does some secret magic!
-   * @private
-   */
-  _doHiddenstuff() {
-
-  },
-
-  /**
-   * Sometimes it's just nice to say hi.
    *
-   * @param {String} greeting A positive greeting.
-   * @return {String} The full greeting.
    */
-  sayHello(greeting ='Hello World!') {
-    return 'hence-comp-model-user says, ' + greeting;
+  transformState() {
+    let results = [];
+
+    this.state.forEach((entry)=>{
+      results.push({
+        title:entry.title,
+        image: entry.image
+      })
+    });
+
+    if(results.length === 1) {
+      results = results[0];
+    }
+
+    return results;
   }
 });
 

@@ -3,6 +3,12 @@
 
 <dom-module id="hence-comp-model-user">
   <template>
-    <hence-comp-ui-card props="{{test}}"></hence-comp-ui-card>
+    <hence-comp-schema-user action="getUser" query="{{query}}" results="{{state}}"></hence-comp-schema-user>
+    <template is="dom-if" if="{{state}}">
+      <hence-comp-ui-card props="{{transformState()}}"></hence-comp-ui-card>
+    </template>
+    <template is="dom-if" if="{{!state}}">
+      There are no users to list, sorry
+    </template>
   </template>
 </dom-module>
