@@ -13,7 +13,7 @@
     "sassdocs": "sassdoc src/scss",
     "jsdocs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
     "preinstall": "npm i -g gulp karma-cli",
-    "postinstall": "sudo gem update && sudo gem install compass susy modular-scale breakpoint scss_lint font-awesome-sass"
+    "postinstall": "gem update && gem install compass susy modular-scale breakpoint scss_lint font-awesome-sass"
   },
   "browserify": {
     "transform": [
