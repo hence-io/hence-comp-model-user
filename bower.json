@@ -17,7 +17,11 @@
     "/comp/gulp/",
     "/comp/test/"
   ],
-  "dependencies": {"polymer":"Polymer/polymer#^1.0.0","hence-comp-ui-card":"git://github.com/hence-io/hence-comp-ui-card"},
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0",
+    "hence-comp-ui-card": "git://github.com/hence-io/hence-comp-ui-card",
+    "font-awesome": "~4.3.0"
+  },
   "devDependencies": {
     "web-component-tester": "*"
   }
