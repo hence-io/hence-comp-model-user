@@ -74,16 +74,17 @@ gulp.task('buildsass', function () {
 // Build JS for distribution.
 gulp.task('buildjs', function () {
   return browserify(global.paths.distjs, {debug: true})
+    .add(require.resolve('babelify/polyfill'))
     .transform(babelify)
     .bundle().on('error', gutil.log.bind(gutil, 'Browserify Error'))
     .pipe(source(global.comp.name+'.js'))
     .pipe(buffer())
-    .pipe(sourcemaps.init({loadMaps: true})) // loads map from browserify file
-    .pipe(uglify())
-    .pipe(sourcemaps.write('./')) // writes .map file
     .pipe(rename({
       suffix: '.min'
     }))
+    .pipe(sourcemaps.init({loadMaps: true})) // loads map from browserify file
+    .pipe(uglify({ mangle: false }))
+    .pipe(sourcemaps.write('./')) // writes .map file
     .pipe(gulp.dest(global.paths.dist + 'js'));
 });
 
@@ -92,6 +93,7 @@ gulp.task('buildhtml', function () {
   gulp.src(global.paths.html)
     .pipe(replace(global.comp.name+'.css', global.comp.name+'.min.css'))
     .pipe(replace(global.comp.name+'.js', global.comp.name+'.min.js'))
+    .pipe(replace('webcomponents-lite.js', 'webcomponents-lite.min.js'))
     .pipe(replace('/bower_components', '../..'))
     //.pipe(replace('<script src="config.js"></script>', ''))
     //.pipe(replace("<script>System.import('./js/app')</script>", ''))
