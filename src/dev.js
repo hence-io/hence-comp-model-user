@@ -25,6 +25,15 @@ let callToAction = {
 };
 
 
-HenceCompModelUser.appendElementTo();
+HenceCompModelUser.appendElementTo({
+  query : {
+    id: 1
+  }
+});
+HenceCompModelUser.appendElementTo({
+  query : {
+    id: 2
+  }
+});
 
 export * from './hence-comp-model-user';
