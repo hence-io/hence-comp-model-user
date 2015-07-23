@@ -32,7 +32,10 @@ let HenceCompModelUser = HenceModel({
    ********************************************************************************************************************/
 
   /**
-   * Manipulate the state loaded in from the schema to be suited for the expecting UI element
+   * Manipulate the state loaded in from the schema to be suited for the expecting UI element. Executed by the
+   * ```renderState()``` function
+   *
+   * @private
    */
   _transformState(entry) {
     let user = {
