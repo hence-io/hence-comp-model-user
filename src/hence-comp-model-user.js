@@ -17,7 +17,8 @@ let HenceCompModelUser = HenceModel({
   /********************************************************************************************************************
    * Initialization
    ********************************************************************************************************************/
-  properties: {},
+  properties: {
+  },
 
   /*********************************************************************************************************************
    * Event Listeners
@@ -37,7 +38,7 @@ let HenceCompModelUser = HenceModel({
    *
    * @private
    */
-  _transformState(entry) {
+    _transformState(entry) {
     let user = {
       title: `${entry.firstName} ${entry.lastName}'s Title`,
       callToAction: {
