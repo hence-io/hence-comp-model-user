@@ -61,6 +61,8 @@ let HenceCompModelUser = HenceModel({
       });
     }
 
+    //console.log('user processed',user);
+
     return user;
   },
 

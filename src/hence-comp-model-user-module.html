@@ -5,13 +5,18 @@
 <dom-module id="hence-comp-model-user">
   <template>
     <h1>User Card</h1>
-    <hence-comp-schema-user action="getUser" query="{{query}}" results="{{state}}"></hence-comp-schema-user>
+    <template is="dom-if" if="{{query}}">
+      <hence-comp-schema-user action="getUser" query="{{query}}" results="{{state}}"></hence-comp-schema-user>
 
-    <template is="dom-if" if="{{state}}">
-      <hence-comp-ui-card props="{{renderState()}}"></hence-comp-ui-card>
+      <template is="dom-if" if="{{state}}">
+        <hence-comp-ui-card props="{{renderState()}}"></hence-comp-ui-card>
+      </template>
+      <template is="dom-if" if="{{!state}}">
+        There is no user to display, sorry
+      </template>
     </template>
-    <template is="dom-if" if="{{!state}}">
-      There is no user to display, sorry
+    <template is="dom-if" if="{{!query}}">
+      Loading entry...
     </template>
   </template>
 </dom-module>
