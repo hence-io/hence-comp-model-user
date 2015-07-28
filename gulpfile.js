@@ -22,7 +22,7 @@ global.paths = {
   // Dist JS file
   "distjs": srcDir + 'dist.js',
   // Main JS file
-  'devjs': srcDir + 'dev.js',
+  'devjs': srcDir + 'index.js',
   // JS sources.
   'js': srcDir + '**/*.js',
   // SASS sources.
