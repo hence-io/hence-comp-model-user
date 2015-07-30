@@ -4,7 +4,6 @@
 
 <dom-module id="hence-comp-model-user">
   <template>
-    <h1>User Card</h1>
     <template is="dom-if" if="{{query}}">
       <hence-comp-schema-user action="getUser" query="{{query}}" results="{{state}}"></hence-comp-schema-user>
 
