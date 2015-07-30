@@ -10,7 +10,7 @@ import browserSyncConstructor from 'browser-sync';
 let browserSync = browserSyncConstructor.create();
 
 import sassCompilation from './../sass';
-sassCompilation('sass', browserSync);
+sassCompilation({taskName: 'sass', browserSync: browserSync});
 
 import htmlCompilation from './../html';
 htmlCompilation('html');
@@ -35,9 +35,7 @@ gulp.task('serve', ['clean-tmp', 'js', 'sass', 'html'], function () {
 });
 
 gulp.task('sass-watch', ['lintsass', 'sass']);
-gulp.task('js-watch', ['lintjs', 'js'], function () {
-  return browserSync.reload();
-});
+gulp.task('js-watch', ['lintjs', 'js'], function () { return browserSync.reload(); });
 gulp.task('html-watch', ['html'], htmlInjector);
 
 /**
