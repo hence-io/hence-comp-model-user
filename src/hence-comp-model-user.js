@@ -3,7 +3,7 @@
  * @module hence-comp-model-user
  */
 import console from 'consoler';
-import {HenceModel} from 'hence-comp';
+import {HenceModel} from 'hence-polycore';
 import _each from 'lodash/collection/each';
 
 let is = 'hence-comp-model-user';
