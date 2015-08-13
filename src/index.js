@@ -1,16 +1,16 @@
 'use strict';
 
-import HenceCompModelUser from './hence-comp-model-user';
+import HenceUserCard from './hence-user-card';
 
-HenceCompModelUser.appendElementTo({
-  query : {
+HenceUserCard.appendElementTo({
+  query: {
     id: 1
   }
 });
-HenceCompModelUser.appendElementTo({
-  query : {
+HenceUserCard.appendElementTo({
+  query: {
     id: 2
   }
 });
 
-export * from './hence-comp-model-user';
+export * from './hence-user-card';

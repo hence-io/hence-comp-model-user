@@ -1,0 +1,21 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/hence-user/dist/hence-user.html">
+<link rel="import" href="/bower_components/hence-card/dist/hence-card.html">
+
+<dom-module id="hence-user-card">
+  <template>
+    <template is="dom-if" if="{{query}}">
+      <hence-user action="getUser" query="{{query}}" results="{{state}}"></hence-user>
+
+      <template is="dom-if" if="{{state}}">
+        <hence-card props="{{renderState()}}"></hence-card>
+      </template>
+      <template is="dom-if" if="{{!state}}">
+        There is no user to display, sorry
+      </template>
+    </template>
+    <template is="dom-if" if="{{!query}}">
+      Loading entry...
+    </template>
+  </template>
+</dom-module>

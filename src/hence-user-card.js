@@ -1,18 +1,18 @@
 'use strict';
 /**
- * @module hence-comp-model-user
+ * @module hence-user-card
  */
 import console from 'consoler';
 import {HenceModel} from 'hence-polycore';
 import _each from 'lodash/collection/each';
 
-let is = 'hence-comp-model-user';
+let is = 'hence-user-card';
 
 /**
- * HenceCompModelUser Component
+ * HenceUserCard Component
  * @constructor
  */
-let HenceCompModelUser = HenceModel({
+let HenceUserCard = HenceModel({
   is, // auto set as is : is, es6 laziness joy!
   /********************************************************************************************************************
    * Initialization
@@ -71,4 +71,4 @@ let HenceCompModelUser = HenceModel({
 });
 
 export {is};
-export default HenceCompModelUser;
+export default HenceUserCard;

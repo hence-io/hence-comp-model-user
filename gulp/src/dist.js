@@ -1,4 +1,4 @@
 'use strict';
 
-import HenceCompModelUser from './../../src/hence-comp-model-user';
-HenceCompModelUser.registerElement();
+import HenceUserCard from './../../src/hence-user-card';
+HenceUserCard.registerElement();

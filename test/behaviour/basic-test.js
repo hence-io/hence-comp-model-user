@@ -1,15 +1,15 @@
-var component = document.querySelector('hence-comp-model-user');
+var component = document.querySelector('hence-user-card');
 
-suite('<hence-comp-model-user>', function () {
+suite('<hence-user-card>', function () {
 
   test('says hello', function () {
     assert.equal(component.greeting, 'test greeting');
   });
 
   test('says hello', function () {
-    assert.equal(component.sayHello(), 'hence-comp-model-user says, Hello World!');
+    assert.equal(component.sayHello(), 'hence-user-card says, Hello World!');
 
     var greetings = component.sayHello('greetings Earthlings');
-    assert.equal(greetings, 'hence-comp-model-user says, greetings Earthlings');
+    assert.equal(greetings, 'hence-user-card says, greetings Earthlings');
   });
 });

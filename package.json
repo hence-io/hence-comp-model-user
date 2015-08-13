@@ -1,9 +1,9 @@
 {
-  "name": "hence-comp-model-user",
+  "name": "hence-user-card",
   "author": "Sean 'Blitz' Homer <sean.homer@therefore.ca>",
   "version": "0.1.0",
   "description": "An element providing a starting point for your own reusable Polymer elements.",
-  "main": "src/hence-comp-model-user.js",
+  "main": "src/hence-user-card.js",
   "scripts": {
     "start": "gulp",
     "test": "karma start",
@@ -79,9 +79,9 @@
     "web-component-tester": "^3.2.0"
   },
   "dependencies": {
-    "consoler": "git://github.com/blitzcodes/consoler",
+    "consoler": "blitzcodes/consoler",
+    "hence-polycore": "hence-io/hence-polycore",
     "doc-ready": "^1.0.3",
-    "hence-polycore": "git://github.com/hence-io/hence-polycore",
     "lodash": "^3.10.0",
     "moment": "^2.10.3",
     "string": "^3.3.0"
