@@ -6,27 +6,16 @@ import console from 'consoler';
 import {HenceModel} from 'hence-polycore';
 import _each from 'lodash/collection/each';
 
-let is = 'hence-user-card';
-
 /**
  * HenceUserCard Component
  * @constructor
  */
 let HenceUserCard = HenceModel({
-  is, // auto set as is : is, es6 laziness joy!
+  is: 'hence-user-card',
   /********************************************************************************************************************
    * Initialization
    ********************************************************************************************************************/
-  properties: {
-  },
-
-  /*********************************************************************************************************************
-   * Event Listeners
-   ********************************************************************************************************************/
-
-  /*********************************************************************************************************************
-   * Element DOM Hooks
-   ********************************************************************************************************************/
+  properties: {},
 
   /*********************************************************************************************************************
    * Element Behaviour
@@ -37,38 +26,38 @@ let HenceUserCard = HenceModel({
    * ```renderState()``` function
    *
    * @private
+   * @param raw Object
    */
-    _transformState(entry) {
-    let user = {
-      title: `${entry.firstName} ${entry.lastName}'s Title`,
+    _transformState(raw) {
+    let entry = {
+      title: `${raw.firstName} ${raw.lastName}'s Title`,
       callToAction: {
         label: `Email user`,
         action: (e, model)=> {
-          alert(`Email user: ${entry.email}`);
+          alert(`Email user: ${raw.email}`);
         }
       }
     };
 
-    if (entry.mySites) {
-      user.options = [];
+    if (raw.mySites) {
+      entry.options = [];
 
-      _each(entry.mySites, (url, label)=> {
+      _each(raw.mySites, (url, label)=> {
         let site = {
           label: label,
           action: ()=> { window.location = url; }
         };
 
-        user.options.push(site);
+        entry.options.push(site);
       });
     }
 
     //console.log('user processed',user);
 
-    return user;
+    return entry;
   },
 
   behaviors: []
 });
 
-export {is};
 export default HenceUserCard;
