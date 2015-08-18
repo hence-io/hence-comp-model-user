@@ -3,14 +3,14 @@
  * @module hence-user-card
  */
 import console from 'consoler';
-import {HenceModel} from 'hence-polycore';
+import Hence from 'hence-component-framework';
 import _each from 'lodash/collection/each';
 
 /**
  * HenceUserCard Component
  * @constructor
  */
-let HenceUserCard = HenceModel({
+let HenceUserCard = Hence.Model({
   is: 'hence-user-card',
   /********************************************************************************************************************
    * Initialization
