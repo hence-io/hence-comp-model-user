@@ -5,6 +5,7 @@
 import console from 'consoler';
 import Hence from 'hence-component-framework';
 import _each from 'lodash/collection/each';
+import HenceUserBiography from '../../hence-user-biography/src/hence-user-biography';
 
 /**
  * HenceUserCard Component
@@ -28,11 +29,13 @@ let HenceUserCard = Hence.Model({
    * @private
    * @param raw Object
    */
-    _transformState(raw) {
+  _transformState(raw) {
     let entry = {
       title: `${raw.firstName} ${raw.lastName}'s Title`,
+      image: raw.profilePhoto,
+      description: HenceUserBiography.createElement(raw),
       callToAction: {
-        label: `Email user`,
+        label: `Email ${raw.username}`,
         action: (e, model)=> {
           alert(`Email user: ${raw.email}`);
         }
@@ -42,10 +45,10 @@ let HenceUserCard = Hence.Model({
     if (raw.mySites) {
       entry.options = [];
 
-      _each(raw.mySites, (url, label)=> {
+      _each(raw.mySites, (origSite)=> {
         let site = {
-          label: label,
-          action: ()=> { window.location = url; }
+          label: origSite.label,
+          action: ()=> { window.location = origSite.url; }
         };
 
         entry.options.push(site);
