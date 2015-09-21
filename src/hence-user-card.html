@@ -6,7 +6,7 @@
 <dom-module id="hence-user-card">
   <template>
     <template is="dom-if" if="{{query}}">
-      <hence-user action="getUser" query="{{query}}" results="{{state}}"></hence-user>
+      <hence-user action="get" query="{{query}}" results="{{state}}"></hence-user>
 
       <template is="dom-if" if="{{state}}">
         <hence-card props="{{renderState()}}"></hence-card>
